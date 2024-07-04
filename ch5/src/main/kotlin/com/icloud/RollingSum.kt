@@ -1,6 +1,6 @@
 package com.icloud
 
-import extention.tuple
+import com.icloud.extention.tuple
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment
 
 object RollingSum {

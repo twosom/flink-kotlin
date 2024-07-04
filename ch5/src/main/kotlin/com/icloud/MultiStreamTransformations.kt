@@ -1,14 +1,14 @@
 package com.icloud
 
-import model.Alert
-import model.SensorReading
-import model.SmokeLevel
+import com.icloud.model.Alert
+import com.icloud.model.SensorReading
+import com.icloud.model.SmokeLevel
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment
 import org.apache.flink.streaming.api.functions.co.CoFlatMapFunction
 import org.apache.flink.util.Collector
-import source.SensorSource
-import source.SmokeLevelSource
-import timestamp.SensorTimeAssigner
+import com.icloud.source.SensorSource
+import com.icloud.source.SmokeLevelSource
+import com.icloud.timestamp.SensorTimeAssigner
 
 object MultiStreamTransformations {
     @JvmStatic

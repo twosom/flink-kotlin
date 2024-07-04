@@ -1,6 +1,6 @@
-package timestamp
+package com.icloud.timestamp
 
-import model.SensorReading
+import com.icloud.model.SensorReading
 import org.apache.flink.streaming.api.functions.timestamps.BoundedOutOfOrdernessTimestampExtractor
 import org.apache.flink.streaming.api.windowing.time.Time
 

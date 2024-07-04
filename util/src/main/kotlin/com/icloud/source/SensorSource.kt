@@ -1,7 +1,7 @@
-package source
+package com.icloud.source
 
-import extention.tuple
-import model.SensorReading
+import com.icloud.extention.tuple
+import com.icloud.model.SensorReading
 import org.apache.flink.configuration.Configuration
 import org.apache.flink.streaming.api.functions.source.RichParallelSourceFunction
 import org.apache.flink.streaming.api.functions.source.SourceFunction.SourceContext

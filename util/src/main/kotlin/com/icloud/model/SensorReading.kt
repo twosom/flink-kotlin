@@ -1,4 +1,4 @@
-package model
+package com.icloud.model
 
 data class SensorReading(
     val id: String,

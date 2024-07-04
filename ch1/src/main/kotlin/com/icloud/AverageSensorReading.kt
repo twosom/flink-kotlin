@@ -1,11 +1,11 @@
 package com.icloud
 
 import com.icloud.function.TemperatureAverager
+import com.icloud.source.SensorSource
+import com.icloud.timestamp.SensorTimeAssigner
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment
 import org.apache.flink.streaming.api.windowing.assigners.TumblingEventTimeWindows
 import org.apache.flink.streaming.api.windowing.time.Time
-import source.SensorSource
-import timestamp.SensorTimeAssigner
 
 object AverageSensorReading {
     @JvmStatic

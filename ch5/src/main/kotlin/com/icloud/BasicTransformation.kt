@@ -1,10 +1,10 @@
 package com.icloud
 
-import extention.flatMap
-import extention.typeInformation
+import com.icloud.extention.flatMap
+import com.icloud.extention.typeInformation
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment
-import source.SensorSource
-import timestamp.SensorTimeAssigner
+import com.icloud.source.SensorSource
+import com.icloud.timestamp.SensorTimeAssigner
 
 object BasicTransformation {
     @JvmStatic

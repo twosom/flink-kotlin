@@ -1,7 +1,7 @@
 package com.icloud.function
 
-import model.SensorReading
-import extention.tuple
+import com.icloud.model.SensorReading
+import com.icloud.extention.tuple
 import org.apache.flink.streaming.api.functions.windowing.WindowFunction
 import org.apache.flink.streaming.api.windowing.windows.TimeWindow
 import org.apache.flink.util.Collector

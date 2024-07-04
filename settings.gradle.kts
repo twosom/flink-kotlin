@@ -1,6 +1,6 @@
 pluginManagement {
     plugins {
-        kotlin("jvm") version "1.9.23"
+        kotlin("jvm") version "2.0.0"
     }
 }
 plugins {
@@ -12,5 +12,6 @@ listOf(
     "util",
     "ch1",
     "ch5",
+    "ch6",
 ).forEach { include(it) }
 

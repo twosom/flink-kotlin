@@ -1,8 +1,8 @@
 package com.icloud
 
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment
-import source.SensorSource
-import timestamp.SensorTimeAssigner
+import com.icloud.source.SensorSource
+import com.icloud.timestamp.SensorTimeAssigner
 
 object KeyedTransformation {
     @JvmStatic
