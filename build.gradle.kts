@@ -34,15 +34,25 @@ allprojects {
     kotlin {
         jvmToolchain(11)
     }
+    tasks {
+        test {
+            useJUnitPlatform()
+        }
 
-    tasks.test {
-        useJUnitPlatform()
+        withType<ShadowJar> {
+            isZip64 = true
+            mergeServiceFiles()
+        }
+
+        build {
+            val mainClassName: String by project.properties
+            println("Main Class Name = $mainClassName")
+
+            application.mainClass = mainClassName
+        }
     }
 
-    tasks.withType<ShadowJar> {
-        isZip64 = true
-        mergeServiceFiles()
-    }
+
 
     dependencies {
         // flink
@@ -52,7 +62,7 @@ allprojects {
 
         // logger
         implementation("org.slf4j:slf4j-jdk14:1.7.32")
-        implementation("ch.qos.logback:logback-classic:1.3.1")
+        implementation("ch.qos.logback:logback-classic:1.4.12")
 
         testImplementation(platform("org.junit:junit-bom:5.10.0"))
         testImplementation("org.junit.jupiter:junit-jupiter")

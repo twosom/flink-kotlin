@@ -13,5 +13,6 @@ listOf(
     "ch1",
     "ch5",
     "ch6",
+    "ch7",
 ).forEach { include(it) }
 

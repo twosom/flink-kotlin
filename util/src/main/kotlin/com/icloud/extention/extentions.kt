@@ -2,6 +2,8 @@ package com.icloud.extention
 
 import org.apache.flink.api.common.functions.FlatMapFunction
 import org.apache.flink.api.common.functions.ReduceFunction
+import org.apache.flink.api.common.state.ListStateDescriptor
+import org.apache.flink.api.common.state.MapStateDescriptor
 import org.apache.flink.api.common.state.ValueState
 import org.apache.flink.api.common.state.ValueStateDescriptor
 import org.apache.flink.api.common.typeinfo.TypeInformation
@@ -13,6 +15,8 @@ import org.apache.flink.streaming.api.datastream.SingleOutputStreamOperator
 import org.apache.flink.streaming.api.datastream.WindowedStream
 import org.apache.flink.streaming.api.functions.windowing.ProcessWindowFunction
 import org.apache.flink.streaming.api.windowing.windows.Window
+import org.slf4j.Logger
+import org.slf4j.LoggerFactory
 import kotlin.reflect.KClass
 
 infix fun <T, U> T.tuple(u: U) = Tuple2(this, u)
@@ -62,9 +66,19 @@ fun <ElemT, KeyT, WindowT : Window, OutT> WindowedStream<ElemT, KeyT, WindowT>.r
     reduceFunction: ReduceFunction<ElemT>,
 ): SingleOutputStreamOperator<OutT> = this.reduce(reduceFunction, processWindowFunction)
 
-/**
- * sugar code for create ValueStateDescriptor
- */
+
 fun <ValueT : Any> String.valueState(
     type: KClass<ValueT>,
 ): ValueStateDescriptor<ValueT> = ValueStateDescriptor(this, type.java)
+
+fun <ValueT : Any> String.listState(
+    type: KClass<ValueT>,
+): ListStateDescriptor<ValueT> = ListStateDescriptor(this, type.java)
+
+fun <KeyT : Any, ValueT : Any> String.mapState(
+    keyType: KClass<KeyT>,
+    valueType: KClass<ValueT>,
+): MapStateDescriptor<KeyT, ValueT> = MapStateDescriptor(this, keyType.java, valueType.java)
+
+fun <ClassT : Any> KClass<ClassT>.logger(): Logger =
+    LoggerFactory.getLogger(this.java)
